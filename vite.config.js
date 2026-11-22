@@ -13,6 +13,7 @@ export default defineConfig({
     target: 'es2022',
     outDir: 'dist',
     assetsInlineLimit: 0,
-    sourcemap: true,
+    // 源码就在 GitHub 上，部署包不用带 3MB 的 sourcemap
+    sourcemap: false,
   },
 });
