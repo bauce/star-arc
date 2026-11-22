@@ -40,11 +40,18 @@ export class Input {
     };
     this._onKeyUp = (e) => this.keys.delete(e.code);
 
+    // 只有「鼠标左键按在游戏画面上」才算开火。
+    // 早期版本只判断 e.button === 0，结果手指点 BOOST / 暂停 / 开始按钮时
+    // 也会把 mouseDown 置为 true —— 表现就是「点加速同时开火」。
     this._onPointerDown = (e) => {
-      if (e.button === 0) this.mouseDown = true;
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      const el = e.target instanceof Element ? e.target : null;
+      if (el && el.closest('button, .btn, #start, #pause, #over, #touch')) return;
+      this.mouseDown = true;
     };
     this._onPointerUp = (e) => {
-      if (e.button === 0) this.mouseDown = false;
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      this.mouseDown = false;
     };
     this._onMouseMove = (e) => {
       if (!this.pointerLocked) return;
