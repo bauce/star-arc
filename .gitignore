@@ -1,0 +1,19 @@
+node_modules/
+dist/
+.DS_Store
+npm-debug.log*
+
+# 本地跑测试 / 截图留下的临时目录
+.npm-cache/
+.tmp/
+.shots/
+.chrome-*/
+
+# 本地凭据，别提交
+.git-credentials
+.curlrc-gh
+*.token
+.env
+
+# 调试截图（根目录）
+/*.png

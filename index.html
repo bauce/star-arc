@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <title>星弧 · STAR ARC</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <div id="hud">
+      <div class="top">
+        <div class="panel stats">
+          <div class="label">护盾 SHIELD</div>
+          <div class="bar"><i id="shield-bar"></i></div>
+          <div class="label boost-label">加速 BOOST</div>
+          <div class="bar boost"><i id="boost-bar"></i></div>
+        </div>
+        <div class="panel stat">
+          <div class="label">得分 SCORE</div>
+          <div class="value" id="score">0</div>
+        </div>
+        <div class="panel stat">
+          <div class="label">波次 WAVE</div>
+          <div class="value" id="wave">1</div>
+        </div>
+      </div>
+
+      <div id="effects"></div>
+
+      <button id="pause-btn" type="button" aria-label="暂停">
+        <span></span><span></span>
+      </button>
+
+      <div id="reticle">
+        <span class="d d1"></span><span class="d d2"></span>
+        <span class="d d3"></span><span class="d d4"></span>
+        <span class="core"></span>
+      </div>
+
+      <div id="hint">
+        <span class="desktop-hint">WASD 操控 · 空格/J 开火 · Shift 加速 · Q/E 横滚 · 点击画面用鼠标飞</span>
+        <span class="touch-hint">左半屏拖动操控 · 右侧按住开火 · BOOST 加速</span>
+      </div>
+
+      <div id="waypoint">
+        <span class="wp-arrow">▲</span>
+        <span class="wp-label"></span>
+      </div>
+
+      <div id="warp">
+        <div class="warp-flash"></div>
+        <div class="warp-text"></div>
+      </div>
+      <div id="flash"></div>
+
+      <div id="over" class="hidden">
+        <h1>信号丢失</h1>
+        <p class="sub">SIGNAL LOST</p>
+        <p class="score-line">最终得分 <b id="final-score">0</b> · 抵达第 <b id="final-wave">1</b> 波</p>
+        <button id="restart">再次出击</button>
+      </div>
+
+      <div id="pause" class="hidden">
+        <div class="pause-panel">
+          <img id="pause-ship" class="pause-ship" alt="" />
+          <h2>已暂停</h2>
+          <p class="sub">PAUSED</p>
+          <button id="resume-btn">继续任务</button>
+          <button id="restart-btn">重新开始</button>
+          <button id="quit-btn" class="ghost">退出到主菜单</button>
+        </div>
+      </div>
+
+      <div id="start">
+        <div class="start-inner">
+          <h1>星弧</h1>
+          <p class="sub">STAR ARC · 深空拦截</p>
+
+          <div class="keys">
+            <div class="keys-col desktop-only">
+              <h3>PC</h3>
+              <ul>
+                <li><b>W / S</b> 俯仰</li>
+                <li><b>A / D</b> 偏航</li>
+                <li><b>Q / E</b> 横滚</li>
+                <li><b>空格 / J</b> 开火</li>
+                <li><b>Shift</b> 加速</li>
+                <li><b>点击画面</b> 鼠标飞行</li>
+              </ul>
+            </div>
+            <div class="keys-col touch-only">
+              <h3>手机</h3>
+              <ul>
+                <li><b>左半屏拖动</b> 操控</li>
+                <li><b>FIRE</b> 开火</li>
+                <li><b>BOOST</b> 加速</li>
+                <li><b>右半屏按住</b> 也能开火</li>
+              </ul>
+            </div>
+            <div class="keys-col">
+              <h3>任务</h3>
+              <ul>
+                <li>击碎陨石 · 冰晶 · 晶簇</li>
+                <li>拾取 <em class="c-cyan">无敌</em> <em class="c-pink">反弹</em> <em class="c-green">修复</em></li>
+                <li>活得越久，分数越高</li>
+              </ul>
+            </div>
+          </div>
+
+          <button id="start-btn">开始任务</button>
+          <p class="tiny">空格 / 回车 也可以开始</p>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

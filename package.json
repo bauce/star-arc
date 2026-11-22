@@ -1,0 +1,19 @@
+{
+  "name": "star-arc",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "星弧 STAR ARC —— Three.js 星际射击游戏垂直切片",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173 --strictPort"
+  },
+  "dependencies": {
+    "lil-gui": "^0.20.0",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "vite": "^7.1.0"
+  }
+}
